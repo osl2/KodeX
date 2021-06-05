@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: kodex.standardplugins.greyscaleimageprocedure.GreyScaleImageProcedurePluginTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.953 s - in kodex.standardplugins.greyscaleimageprocedure.GreyScaleImageProcedurePluginTest

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: kodex.standardplugins.colorimageprocedure.ColorImageProcedurePluginTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.127 s - in kodex.standardplugins.colorimageprocedure.ColorImageProcedurePluginTest

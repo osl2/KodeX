@@ -1,0 +1,77 @@
+package kodex.standardplugins.morsecodeprocedure;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import kodex.plugininterface.ChainLinkPresenter;
+import kodex.plugininterface.ImportPresenter;
+import kodex.plugininterface.ProcedureInformation;
+import kodex.plugininterface.ProcedurePlugin;
+import kodex.pluginutils.model.steps.ColorImageToRGBMatrix;
+import kodex.pluginutils.model.steps.RGBByteListToBinaryString;
+import kodex.pluginutils.model.steps.RGBListToRGBByteList;
+import kodex.pluginutils.model.steps.RGBMatrixToRGBList;
+import kodex.pluginutils.presenter.chainlink.BinaryStringPresenter;
+import kodex.pluginutils.presenter.chainlink.ColorImageChainLinkPresenter;
+import kodex.pluginutils.presenter.chainlink.RGBByteListChainLinkPresenter;
+import kodex.pluginutils.presenter.chainlink.RGBListChainLinkPresenter;
+import kodex.pluginutils.presenter.chainlink.RGBMatrixChainLinkPresenter;
+import kodex.standardplugins.colorimageprocedure.ColorImageProcedureInformation;
+import kodex.standardplugins.colorimageprocedure.presenter.ColorImageImportPresenter;
+
+public class MorseCodeProcedurePlugin extends ProcedurePlugin{
+	
+	/** Creates a new instance of the MorseCodeProcedurePlugin. */
+	public MorseCodeProcedurePlugin() {
+		// does nothing because the procedure plugin is initalized using the initializeProcedure method
+	}
+
+	  /**
+	   * Initialize the procedure plugin.
+	   */
+	  public void initializeProcedure() {
+	    this.chainLinks = new ChainLinkPresenter[5];
+
+	    ColorImageToRGBMatrix colorImageToRGBMatrix = new ColorImageToRGBMatrix();
+	    chainLinks[0] = new ColorImageChainLinkPresenter(null, null, colorImageToRGBMatrix);
+	    
+	    RGBMatrixToRGBList rgbMatrixToRGBList = new RGBMatrixToRGBList();
+	    chainLinks[1] = 
+	        new RGBMatrixChainLinkPresenter(chainLinks[0], colorImageToRGBMatrix, rgbMatrixToRGBList);
+	    
+	    RGBListToRGBByteList rgbListToRGBByteList = new RGBListToRGBByteList();
+	    chainLinks[2] =
+	        new RGBListChainLinkPresenter(chainLinks[1], rgbMatrixToRGBList, rgbListToRGBByteList);
+	    
+	    RGBByteListToBinaryString rgbByteListToBinaryString = new RGBByteListToBinaryString();
+	    chainLinks[3] = new RGBByteListChainLinkPresenter(chainLinks[2], 
+	        rgbListToRGBByteList, rgbByteListToBinaryString);
+	    
+	    chainLinks[4] = new BinaryStringPresenter(chainLinks[3], rgbByteListToBinaryString, null);
+
+	    // set next for chain links
+	    for (int i = 0; i < chainLinks.length - 1; i++) {
+	      chainLinks[i].setNext(chainLinks[i + 1]);
+	    }
+	  }
+
+	  @Override
+	  public ColorImageImportPresenter createImportPresenter() {
+	    return new ColorImageImportPresenter(this);
+	  }
+
+	  @Override
+	  public ColorImageProcedureInformation createProcedureInformation() {
+	    return new ColorImageProcedureInformation();
+	  }
+
+	  @Override
+	  public StringProperty pluginDescriptionProperty() {
+	    return new SimpleStringProperty("Das Kodierungsverfahren Bild-zu-Bitfolge.");
+	  }
+
+	  @Override
+	  public StringProperty pluginNameProperty() {
+	    return new SimpleStringProperty("Farbbildverfahrensplugin");
+	  }
+	
+}

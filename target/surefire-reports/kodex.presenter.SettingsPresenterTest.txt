@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: kodex.presenter.SettingsPresenterTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 4.822 s - in kodex.presenter.SettingsPresenterTest

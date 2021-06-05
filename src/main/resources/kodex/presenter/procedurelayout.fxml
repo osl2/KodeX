@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane fx:id="procedureRootPane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <StackPane fx:id="overlayPane">
+         <children>
+            <BorderPane fx:id="procedurePane">
+               <top>
+                  <BorderPane styleClass="overview__container">
+                     <center>
+                        <ScrollPane fx:id="overviewScroll" styleClass="overview__scrollbar" vbarPolicy="NEVER">
+                           <content>
+                              <BorderPane>
+                                 <center>
+                                    <HBox fx:id="overviewBox" styleClass="overview__box" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </content>
+                        </ScrollPane>
+                     </center>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </BorderPane>
+               </top>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

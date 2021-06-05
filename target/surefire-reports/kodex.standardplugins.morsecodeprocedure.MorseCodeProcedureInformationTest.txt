@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: kodex.standardplugins.morsecodeprocedure.MorseCodeProcedureInformationTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in kodex.standardplugins.morsecodeprocedure.MorseCodeProcedureInformationTest
+kodex.standardplugins.morsecodeprocedure.MorseCodeProcedureInformationTest.testGetDescription  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Es wird zunächst das Bild in eine Matrix umgewandelt. Daraufhin wandelt man diese in eine Liste um. Am Ende erhält man eine Binärfolge.> but was: <Umwandlung einer Zeichenkette in Morse-Code und umgekehrt.>
+	at kodex.KodeX/kodex.standardplugins.morsecodeprocedure.MorseCodeProcedureInformationTest.testGetDescription(MorseCodeProcedureInformationTest.java:45)
+

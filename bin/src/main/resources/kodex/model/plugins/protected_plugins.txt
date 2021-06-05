@@ -1,0 +1,6 @@
+Farbbildverfahrensplugin
+Schwarz & Weiß Bild
+Graustufen Bild
+QR-Code
+Lauflängencodierung
+Morse-Code

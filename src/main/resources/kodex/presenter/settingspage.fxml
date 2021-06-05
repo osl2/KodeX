@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane styleClass="default-root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane styleClass="default-page" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="lblHeader" styleClass="default-page-title"/>
+                  <Region styleClass="settings__spring" />
+                  <VBox>
+                     <children>
+                        <Label fx:id="lblLanguage" />
+                        <Region styleClass="settings__setting__spring" />
+                        <ChoiceBox fx:id="languageChoiceBox" onAction="#handleChangeLanguage" styleClass="default-choice-box--shadow" />
+                     </children>
+                  </VBox>
+                  <Region styleClass="settings__spring" />
+                  <VBox>
+                     <children>
+                        <Label fx:id="lblDefaultPort"/>
+                        <Region styleClass="settings__setting__spring" />
+                        <HBox styleClass="settings__setting__input">
+                           <children>
+                              <Label fx:id="lblDefaultPortDescription" styleClass="settings__textfield__label" />
+                              <TextField fx:id="portTextField" styleClass="settings__textfield"/>
+                              <Region styleClass="settings__setting__input__spring" />
+                              <Button fx:id="submitPortButton" mnemonicParsing="false" onAction="#handleSubmitPort" styleClass="default-button--shadow">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi-check" iconSize="20" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Region styleClass="settings__spring" />
+                  <VBox>
+                     <children>
+                        <Label fx:id="lblDefaultPath"/>
+                        <Region styleClass="settings__setting__spring" />
+                        <HBox styleClass="settings__setting__input">
+                           <children>
+                              <Label fx:id="lblDefaultPathDescription" styleClass="settings__textfield__label" />
+                              <TextField fx:id="pathTextField" styleClass="settings__textfield"/>
+                              <Region styleClass="settings__setting__input__spring" />
+                              <Button mnemonicParsing="false" onAction="#handleBrowsePath" styleClass="default-button--shadow">
+                                 <graphic>
+                                    <FontIcon iconLiteral="mdi-folder-outline" iconSize="20" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Region styleClass="settings__spring" />
+                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleRestoreDefaultSettings" styleClass="default-button--shadow" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
